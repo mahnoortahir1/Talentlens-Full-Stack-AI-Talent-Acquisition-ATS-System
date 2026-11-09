@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "npm install --prefix talentlens/talentlens/server --omit=dev --omit=optional && npm install --prefix talentlens/talentlens/client",
+  "buildCommand": "npm run build --prefix talentlens/talentlens/client",
+  "outputDirectory": "talentlens/talentlens/client/dist",
+  "functions": {
+    "api/index.js": { "maxDuration": 60, "memory": 1024 }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/index.js" },
+    { "source": "/((?!api/|assets/).*)", "destination": "/index.html" }
+  ]
+}
