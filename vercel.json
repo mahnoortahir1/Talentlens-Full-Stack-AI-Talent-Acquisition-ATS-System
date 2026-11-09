@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "installCommand": "npm install --prefix talentlens/talentlens/server --omit=dev --omit=optional && npm install --prefix talentlens/talentlens/client",
+  "installCommand": "npm install --prefix talentlens/talentlens/server --omit=dev --omit=optional && npm install --prefix talentlens/talentlens/client --include=dev",
   "buildCommand": "npm run build --prefix talentlens/talentlens/client",
   "outputDirectory": "talentlens/talentlens/client/dist",
   "functions": {
