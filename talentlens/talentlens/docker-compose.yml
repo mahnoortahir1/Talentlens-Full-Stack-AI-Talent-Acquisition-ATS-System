@@ -1,0 +1,34 @@
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      retries: 5
+
+  app:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      mongo:
+        condition: service_healthy
+    ports:
+      - "5000:5000"
+    environment:
+      NODE_ENV: production
+      MONGO_URI: mongodb://mongo:27017/talentlens
+      JWT_SECRET: ${JWT_SECRET:-change-this-to-a-long-random-string}
+      CLIENT_ORIGIN: http://localhost:5000
+      EMBEDDING_PROVIDER: ${EMBEDDING_PROVIDER:-local}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      MODEL_CACHE_DIR: /app/.model-cache
+    volumes:
+      - model-cache:/app/.model-cache
+
+volumes:
+  mongo-data:
+  model-cache:

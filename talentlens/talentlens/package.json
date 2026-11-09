@@ -1,0 +1,15 @@
+{
+  "name": "talentlens",
+  "private": true,
+  "description": "TalentLens — AI recruitment & talent intelligence platform (MERN)",
+  "scripts": {
+    "install:all": "npm install --prefix server && npm install --prefix client",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "seed": "npm run seed --prefix server -- --reset",
+    "test": "npm test --prefix server",
+    "test:all": "npm run test:all --prefix server",
+    "build": "npm run build --prefix client",
+    "start": "npm start --prefix server"
+  }
+}
