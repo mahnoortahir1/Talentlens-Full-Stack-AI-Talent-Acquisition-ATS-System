@@ -1,0 +1,15 @@
+{
+  "name": "talentlens-workspace",
+  "private": true,
+  "description": "TalentLens — AI recruitment & talent intelligence platform",
+  "scripts": {
+    "dev": "node -e \"const { spawn } = require('node:child_process'); const s = spawn('npm', ['run', 'dev'], { cwd: 'talentlens/talentlens/server', stdio: 'inherit', shell: true }); const c = spawn('npm', ['run', 'dev'], { cwd: 'talentlens/talentlens/client', stdio: 'inherit', shell: true }); process.on('SIGINT', () => { s.kill(); c.kill(); process.exit(); });\"",
+    "dev:server": "npm run dev --prefix talentlens/talentlens/server",
+    "dev:client": "npm run dev --prefix talentlens/talentlens/client",
+    "build": "npm run build --prefix talentlens/talentlens/client",
+    "start": "npm start --prefix talentlens/talentlens/server",
+    "seed": "npm run seed --prefix talentlens/talentlens/server",
+    "test": "npm test --prefix talentlens/talentlens/server"
+  }
+}
+

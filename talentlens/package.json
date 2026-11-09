@@ -1,0 +1,14 @@
+{
+  "name": "talentlens-root",
+  "private": true,
+  "scripts": {
+    "dev": "node -e \"const { spawn } = require('node:child_process'); const s = spawn('npm', ['run', 'dev'], { cwd: 'talentlens/server', stdio: 'inherit', shell: true }); const c = spawn('npm', ['run', 'dev'], { cwd: 'talentlens/client', stdio: 'inherit', shell: true }); process.on('SIGINT', () => { s.kill(); c.kill(); process.exit(); });\"",
+    "dev:server": "npm run dev --prefix talentlens/server",
+    "dev:client": "npm run dev --prefix talentlens/client",
+    "seed": "npm run seed --prefix talentlens/server -- --reset",
+    "test": "npm test --prefix talentlens/server",
+    "build": "npm run build --prefix talentlens/client",
+    "start": "npm start --prefix talentlens/server"
+  }
+}
+
