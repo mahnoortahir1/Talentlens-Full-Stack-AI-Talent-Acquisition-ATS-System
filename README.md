@@ -205,5 +205,5 @@ Distributed under the MIT License. See [`LICENSE`](LICENSE) for more details.
 ---
 
 <div align="center">
-  <sub>Developed by <a href="https://github.com/mahnoortahir1">Mahnoor Tahir</a></sub>
+  <sub>Developed by <a href="https://github.com/mahnoortahir1">Mahnoor Tahir & Ariba Arif</a></sub>
 </div>
